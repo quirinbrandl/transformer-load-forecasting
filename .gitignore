@@ -1,3 +1,11 @@
+**/darts_logs
+**/catboost_info
+**/.ipynb_checkpoints
+**/*venv
+**/__pycache__
+**.out
+**/building-data-genome-project-2-master
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,329 @@
+# True value for DEBUG only - runs the short and light version of experiments
+test_run: False
+
+# List of model types that should be included in the experiments
+# The list is also used for the hyperparameter tuning
+model_types:
+  - transformer
+  - lstm
+  - prophet
+  - arima
+  - svr
+  - rf
+
+# Training lengths in days considered
+train_lengths:
+  - 14
+  - 28
+  - 91
+  - 182
+  - 364
+
+ # First timestamp for which predictions will be made
+prediction_start_dates:
+  - '2017-04-03 00:00:00'
+  - '2017-08-07 00:00:00'
+  - '2017-10-02 00:00:00'
+  - '2017-12-11 00:00:00'
+
+# First timestamp for hyperparameter tuning phase
+hyperparam_tuning_start: '2017-02-06 00:00:00'
+
+# Number of days for which predictions should be calculated
+pred_period: 7
+
+# Number of days for validation data
+val_length: 7
+
+# If True a model should be trained for each day of predictions
+daily_retrain: False
+
+# Path to metadata.csv file from Building Data Genome Project dataset
+path_metadata: '../data/building-data-genome-project-2-master/data/metadata/metadata.csv'
+
+# Path to electricity_cleaned.csv file from Building Data Genome Project dataset
+path_electricity_data_unprocessed: '../data/building-data-genome-project-2-master/data/meters/cleaned/electricity_cleaned.csv'
+
+# Path to weather.csv file from Building Data Genome Project dataset
+path_weather_data: '../data/building-data-genome-project-2-master/data/weather/weather.csv'
+
+# Path to the file with preprocessed electricity meter data
+path_electricity_data_processed: '../data/electricity_cleaned_preprocessed.csv'
+
+# Path to directory where the preprocessed covariates per site should be stored
+path_covariates_prefix: '../data/covariates/'
+
+# Indicates if the weather data supplied with the dataset should be used. If set to False, open meteo data will be used.
+use_weather_metadata: False
+
+# Hyperparameters for each model type, and each training data length
+hyperparams:
+  transformer:
+    14:
+      d_model: 128
+      nhead: 2
+      num_encoder_layers: 2
+      num_decoder_layers: 2
+      dim_feedforward: 64
+      dropout: 0.05
+      n_epochs: 200
+      early_stopping_min_delta: 0.03
+      early_stopping_patience: 40
+    28:
+      d_model: 128
+      nhead: 4
+      num_encoder_layers: 2
+      num_decoder_layers: 2
+      dim_feedforward: 64
+      dropout: 0.05
+      n_epochs: 200
+      early_stopping_min_delta: 0.015
+      early_stopping_patience: 30
+    91:
+      d_model: 64
+      nhead: 4
+      num_encoder_layers: 3
+      num_decoder_layers: 2
+      dim_feedforward: 32
+      dropout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.005
+      early_stopping_patience: 20
+    182:
+      d_model: 64
+      nhead: 4
+      num_encoder_layers: 2
+      num_decoder_layers: 2
+      dim_feedforward: 128
+      dropout: 0.05
+      n_epochs: 200
+      early_stopping_min_delta: 0.005
+      early_stopping_patience: 10
+    364:
+      d_model: 64
+      nhead: 2
+      num_encoder_layers: 1
+      num_decoder_layers: 3
+      dim_feedforward: 128
+      dropout: 0.05
+      n_epochs: 200
+      early_stopping_min_delta: 0.003
+      early_stopping_patience: 10
+  lstm:
+    14:
+      hidden_dim: 256
+      n_rnn_layer: 3
+      dropout: 0.05
+      n_epochs: 200
+      early_stopping_min_delta: 0.005
+      early_stopping_patience: 40
+    28:
+      hidden_dim: 256
+      n_rnn_layer: 2
+      dropout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.005
+      early_stopping_patience: 30
+    91:
+      hidden_dim: 256
+      n_rnn_layer: 2
+      dropout: 0.15
+      n_epochs: 200
+      early_stopping_min_delta: 0.002
+      early_stopping_patience: 20
+    182:
+      hidden_dim: 256
+      n_rnn_layer: 2
+      dropout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.002
+      early_stopping_patience: 10
+    364:
+      hidden_dim: 256
+      n_rnn_layer: 1
+      dropout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.001
+      early_stopping_patience: 10
+  prophet:
+    14:
+      changepoint_prior_scale: 0.01
+      weekly_seasonality: 5
+      daily_seasonality: 4
+    28:
+      changepoint_prior_scale: 0.001
+      weekly_seasonality: 5
+      daily_seasonality: 4
+    91:
+      changepoint_prior_scale: 0.001
+      weekly_seasonality: 5
+      daily_seasonality: 4
+    182:
+      changepoint_prior_scale: 0.2
+      weekly_seasonality: 5
+      daily_seasonality: 4
+    364:
+      changepoint_prior_scale: 0.01
+      weekly_seasonality: 5
+      daily_seasonality: 4
+  arima:
+    14:
+      p: 24
+      d: 1
+      q: 2
+      with_covars: False
+    28:
+      p: 24
+      d: 1
+      q: 2
+      with_covars: False
+    91:
+      p: 24
+      d: 1
+      q: 2
+      with_covars: False
+    182:
+      p: 24
+      d: 1
+      q: 2
+      with_covars: False
+    364:
+      p: 24
+      d: 1
+      q: 2
+      with_covars: False
+  svr:
+    14:
+      regularization_param: 0.6
+      epsilon: 0.1
+    28:
+      regularization_param: 0.8
+      epsilon: 0.1
+    91:
+      regularization_param: 1.2
+      epsilon: 0.1
+    182:
+      regularization_param: 0.6
+      epsilon: 0.1
+    364:
+      regularization_param: 1.2
+      epsilon: 0.1
+  rf:
+    14:
+      lags: 24
+      n_estimators: 50
+    28:
+      lags: 24
+      n_estimators: 125
+    91:
+      lags: 24
+      n_estimators: 125
+    182:
+      lags: 24
+      n_estimators: 75
+    364:
+      lags: 24
+      n_estimators: 150
+
+# Search space for hyperparameter tuning, for each model type
+hyperparam_candidates:
+  transformer:
+    d_model:
+      - 64
+      - 128
+      - 256
+    nhead:
+      - 1
+      - 2
+      - 4
+    num_encoder_layers:
+      - 1
+      - 2
+      - 3
+    num_decoder_layers:
+      - 1
+      - 2
+      - 3
+    dim_feedforward:
+      - 32
+      - 64
+      - 128
+    dropout:
+      - 0.05
+      - 0.1
+      - 0.15
+    max_tune_iters: 50
+    exhaustive_search: False
+  lstm:
+    hidden_dim:
+      - 64
+      - 128
+      - 256
+    n_rnn_layer:
+      - 1
+      - 2
+      - 3
+    dropout:
+      - 0.05
+      - 0.1
+      - 0.15
+    max_tune_iters: 30
+    exhaustive_search: True
+  svr:
+    regularization_param:
+      - 0.6
+      - 0.8
+      - 1.0
+      - 1.2
+      - 1.4
+    epsilon:
+      - 0.05
+      - 0.1
+      - 0.15
+      - 0.2
+    max_tune_iters: 20
+    exhaustive_search: True
+  rf:
+    n_estimators:
+      - 50
+      - 75
+      - 100
+      - 125
+      - 150
+    max_tune_iters: 5
+    exhaustive_search: True
+  arima:
+    p:
+      - 0
+      - 1
+      - 2
+      - 24
+    d:
+      - 0
+      - 1
+      - 2
+    q:
+      - 0
+      - 1
+      - 2
+      - 24
+    max_tune_iters: 64
+    exhaustive_search: True
+  prophet:
+    weekly_seasonality:
+      - 3
+      - 4
+      - 5
+    daily_seasonality:
+      - 3
+      - 4
+      - 5
+    changepoint_prior_scale:
+      - 0.001
+      - 0.01
+      - 0.1
+      - 0.2
+    max_tune_iters: 64
+    exhaustive_search: True
+
+
