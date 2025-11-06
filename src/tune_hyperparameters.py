@@ -16,7 +16,7 @@ timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 default_out_dir = f"../output/hyperparameter_tuning/{timestamp}"
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--config_file', default='config.yml')
+parser.add_argument('--config_file', default='config/config.yml')
 parser.add_argument('--out_dir', default=default_out_dir)
 args = parser.parse_args()
 with open(args.config_file, 'r') as cfg_yaml:

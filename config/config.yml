@@ -39,19 +39,19 @@ val_length: 7
 daily_retrain: False
 
 # Path to metadata.csv file from Building Data Genome Project dataset
-path_metadata: '../data/building-data-genome-project-2-master/data/metadata/metadata.csv'
+path_metadata: 'data/building-data-genome-project-2-master/data/metadata/metadata.csv'
 
 # Path to electricity_cleaned.csv file from Building Data Genome Project dataset
-path_electricity_data_unprocessed: '../data/building-data-genome-project-2-master/data/meters/cleaned/electricity_cleaned.csv'
+path_electricity_data_unprocessed: 'data/building-data-genome-project-2-master/data/meters/cleaned/electricity_cleaned.csv'
 
 # Path to weather.csv file from Building Data Genome Project dataset
-path_weather_data: '../data/building-data-genome-project-2-master/data/weather/weather.csv'
+path_weather_data: 'data/building-data-genome-project-2-master/data/weather/weather.csv'
 
 # Path to the file with preprocessed electricity meter data
-path_electricity_data_processed: '../data/electricity_cleaned_preprocessed.csv'
+path_electricity_data_processed: 'data/electricity_cleaned_preprocessed.csv'
 
 # Path to directory where the preprocessed covariates per site should be stored
-path_covariates_prefix: '../data/covariates/'
+path_covariates_prefix: 'data/covariates/'
 
 # Indicates if the weather data supplied with the dataset should be used. If set to False, open meteo data will be used.
 use_weather_metadata: False

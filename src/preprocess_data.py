@@ -10,7 +10,7 @@ from icecream import ic
 from utils.weather_data import get_weather_data
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--config_file', default='config.yml')
+parser.add_argument('--config_file', default='config/config.yml')
 args = parser.parse_args()
 with open(args.config_file, 'r') as cfg_yaml:
     cfg = yaml.safe_load(cfg_yaml)
