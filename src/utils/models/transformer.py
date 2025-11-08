@@ -120,7 +120,7 @@ class Transformer(Model):
 
         # shift for using covariates as past covariates (transformer only allows past covariates)
         for col in input_data_covars.columns[1:]:
-            input_data_covars.loc[:, col] = input_data_covars.loc[:, col].shift(-24)
+            input_data_covars[col] = input_data_covars[col].astype(float).shift(-24)
         input_data_covars = input_data_covars.dropna(subset=['weekend'])
         input_covars_series = TimeSeries.from_dataframe(
             input_data_covars,
