@@ -137,5 +137,5 @@ class Transformer(Model):
         prediction_scaled = self.model.predict(number_of_prediction_time_steps, input_scaled,
                                                past_covariates=input_covars_scaled)
         prediction = self.scaler_target.inverse_transform(prediction_scaled)
-        prediction = prediction.pd_dataframe().reset_index()
+        prediction = prediction.to_dataframe().reset_index()
         return prediction
