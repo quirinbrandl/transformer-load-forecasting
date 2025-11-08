@@ -10,7 +10,7 @@ from icecream import ic
 from utils.predict_utils import predict_in_all_buildings
 
 timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-default_out_dir = f"../output/predictions/{timestamp}"
+default_out_dir = f"output/predictions/{timestamp}"
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config_file', default='config/config.yml')
