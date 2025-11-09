@@ -58,6 +58,55 @@ use_weather_metadata: False
 
 # Hyperparameters for each model type, and each training data length
 hyperparams:
+  tft:
+    14:
+      hidden_size: 128
+      lstm_layers: 1
+      num_attention_heads: 2
+      full_attention: False
+      dopout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.03
+      early_stopping_patience: 40
+    28:
+      hidden_size: 128
+      lstm_layers: 1
+      num_attention_heads: 2
+      full_attention: False
+      dopout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.03
+      early_stopping_patience: 40
+    91:
+      hidden_size: 128
+      lstm_layers: 1
+      num_attention_heads: 2
+      full_attention: False
+      dopout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.03
+      early_stopping_patience: 40
+    182:
+      hidden_size: 128
+      lstm_layers: 1
+      num_attention_heads: 2
+      full_attention: False
+      dopout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.03
+      early_stopping_patience: 40
+    364:
+      hidden_size: 128
+      lstm_layers: 1
+      num_attention_heads: 2
+      full_attention: False
+      dopout: 0.1
+      n_epochs: 200
+      early_stopping_min_delta: 0.03
+      early_stopping_patience: 40
+
+
+
   transformer:
     14:
       d_model: 128

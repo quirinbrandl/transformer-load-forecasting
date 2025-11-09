@@ -6,6 +6,7 @@ from .models.prophet import Prophet
 from .models.rf import RF
 from .models.svr import SVR
 from .models.transformer import Transformer
+from .models.tft import TFT
 
 
 def predict_in_all_buildings(data,
@@ -84,7 +85,9 @@ def predict_in_all_buildings(data,
             validation_data_building = validation_data.loc[:, ['ds', building]].rename(columns={building: 'y'}).copy()
 
             # initialize model
-            if model_type == 'transformer':
+            if model_type == 'tft':
+                model = TFT()
+            elif model_type == 'transformer':
                 model = Transformer()
             elif model_type == 'lstm':
                 model = LSTM()
