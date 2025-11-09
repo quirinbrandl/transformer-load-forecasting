@@ -13,7 +13,7 @@ from utils.hyperparameters_tuning_utils import objective_factory, print_callback
 RANDOM_STATE = 68794  # for sampling buildings
 
 timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-default_out_dir = f"../output/hyperparameter_tuning/{timestamp}"
+default_out_dir = f"output/hyperparameter_tuning/{timestamp}"
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config_file', default='config/config.yml')
