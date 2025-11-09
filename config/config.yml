@@ -73,32 +73,32 @@ hyperparams:
       num_attention_heads: 2
       dopout: 0.1
       n_epochs: 200
-      early_stopping_min_delta: 0.03
-      early_stopping_patience: 40
+      early_stopping_min_delta: 0.015
+      early_stopping_patience: 30
     91:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
       dopout: 0.1
       n_epochs: 200
-      early_stopping_min_delta: 0.03
-      early_stopping_patience: 40
+      early_stopping_min_delta: 0.005
+      early_stopping_patience: 20
     182:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
       dopout: 0.1
       n_epochs: 200
-      early_stopping_min_delta: 0.03
-      early_stopping_patience: 40
+      early_stopping_min_delta: 0.005
+      early_stopping_patience: 10
     364:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
       dopout: 0.1
       n_epochs: 200
-      early_stopping_min_delta: 0.03
-      early_stopping_patience: 40
+      early_stopping_min_delta: 0.003
+      early_stopping_patience: 10
 
 
 
