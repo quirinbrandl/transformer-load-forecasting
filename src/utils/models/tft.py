@@ -28,6 +28,7 @@ class TFT(Model):
         output_chunk_length = hyperparams.get("output_chunk_length", 24)
         dropout = hyperparams.get("dropout", 0.15)
         hidden_size = hyperparams.get("hidden_size", 64)
+        lstm_layers = hyperparams.get("lstm_layers", 1)
         batch_size = hyperparams.get("batch_size", 32)
         n_epochs = hyperparams.get("n_epochs", 200)
         early_stopping_patience = n_epochs
@@ -78,6 +79,7 @@ class TFT(Model):
             n_epochs=n_epochs,
             model_name="tft",
             hidden_size=hidden_size,
+            lstm_layers=lstm_layers,
             dropout=dropout,
             # TFT is probabilistic by default. To ensure comparability, make it deterministic
             likelihood=None,
