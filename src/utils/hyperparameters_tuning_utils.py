@@ -9,7 +9,17 @@ def objective_factory(data, sites_covariates, test_start, validation_length, pre
                       model_type, model_hyperparam_candidates, hyperparams_fixed):
     def objective(trial):
         # hyperparameter search space
-        if model_type == 'transformer':
+        if model_type == 'tft':
+            hyperparams = {
+                'hidden_size': trial.suggest_categorical('hidden_size', model_hyperparam_candidates['hidden_size']),
+                'num_attention_heads': trial.suggest_categorical('num_attention_heads', model_hyperparam_candidates['num_attention_heads']),
+                'lstm_layers': trial.suggest_categorical('lstm_layers', model_hyperparam_candidates['lstm_layers']),
+                'full_attention': trial.suggest_categorical('full_attention', model_hyperparam_candidates['lstm_layers']),
+                'dropout': trial.suggest_categorical('dropout', model_hyperparam_candidates['dropout']),
+                'early_stopping_min_delta': hyperparams_fixed[model_type][train_length]['early_stopping_min_delta'],
+                'early_stopping_patience': hyperparams_fixed[model_type][train_length]['early_stopping_patience']
+            }
+        elif model_type == 'transformer':
             hyperparams = {
                 'd_model': trial.suggest_categorical('d_model', model_hyperparam_candidates['d_model']),
                 'nhead': trial.suggest_categorical('nhead', model_hyperparam_candidates['nhead']),

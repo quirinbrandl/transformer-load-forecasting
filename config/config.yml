@@ -271,6 +271,25 @@ hyperparams:
 
 # Search space for hyperparameter tuning, for each model type
 hyperparam_candidates:
+  tft:
+    hidden_size: 
+    - 64
+    - 128
+    - 256
+    lstm_layers: 
+    - 1
+    - 2
+    - 3
+    num_attention_heads: 
+    - 1
+    - 2
+    - 4
+    dropout:
+    - 0.05
+    - 0.1
+    - 0.15
+    max_tune_iters: 30
+    exhaustive_search: False
   transformer:
     d_model:
       - 64
