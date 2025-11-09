@@ -63,7 +63,6 @@ hyperparams:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
-      full_attention: False
       dopout: 0.1
       n_epochs: 200
       early_stopping_min_delta: 0.03
@@ -72,7 +71,6 @@ hyperparams:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
-      full_attention: False
       dopout: 0.1
       n_epochs: 200
       early_stopping_min_delta: 0.03
@@ -81,7 +79,6 @@ hyperparams:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
-      full_attention: False
       dopout: 0.1
       n_epochs: 200
       early_stopping_min_delta: 0.03
@@ -90,7 +87,6 @@ hyperparams:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
-      full_attention: False
       dopout: 0.1
       n_epochs: 200
       early_stopping_min_delta: 0.03
@@ -99,7 +95,6 @@ hyperparams:
       hidden_size: 128
       lstm_layers: 1
       num_attention_heads: 2
-      full_attention: False
       dopout: 0.1
       n_epochs: 200
       early_stopping_min_delta: 0.03
